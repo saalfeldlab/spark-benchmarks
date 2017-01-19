@@ -12,19 +12,25 @@ import scala.Tuple2;
  * @author Philipp Hanslovsky
  *
  */
-public class Evaluate
+public class Evaluate< T, RDD extends JavaRDDLike< T, RDD > >
 {
 
 	private final int N;
 
-	public Evaluate( final int N )
+	private final JavaSparkContext sc;
+
+	private final RDD rdd;
+
+	public Evaluate( final int n, final JavaSparkContext sc, final RDD rdd )
 	{
 		super();
-		this.N = N;
+		N = n;
+		this.sc = sc;
+		this.rdd = rdd;
 	}
 
 	// rdd should be cached. do it within the call or expect user to do it?
-	public < T, RDD extends JavaRDDLike< T, RDD > > void run( final JavaSparkContext sc, final RDD rdd, final BenchmarkAction< T, RDD > action )
+	public void run( final BenchmarkAction< T, RDD > action )
 	{
 
 		final long[] times = new long[ N ];

@@ -26,7 +26,7 @@ public class MathBenchmark
 			al.add( ( byte ) 255 );
 		final JavaRDD< Byte > in = sc.parallelize( al ).cache();
 		in.count();
-		new Evaluate( 10 ).run( sc, in, rdd -> rdd.map( v -> Math.exp( Math.sqrt( v ) ) ) );
+		new Evaluate<>( 10, sc, in ).run( rdd -> rdd.map( v -> Math.exp( Math.sqrt( v ) ) ) );
 
 		sc.close();
 	}

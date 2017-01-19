@@ -52,14 +52,24 @@ public class JoinBenchmark
 
 		small.count();
 
-		final Evaluate ev = new Evaluate( N );
-
 		System.out.println( "big.join(small)" );
-		ev.run( sc, small, new BenchmarkActionJoin<>( big ) );
+		new Evaluate<>( N, sc, small ).run( new BenchmarkActionJoin<>( big ) );
 		System.out.println();
 
 		System.out.println( "small.join(big)" );
-		ev.run( sc, big, new BenchmarkActionJoin<>( small ) );
+		new Evaluate<>( N, sc, big ).run( new BenchmarkActionJoin<>( small ) );
+		System.out.println();
+
+		final int[] fwdMap = new int[ mapping.length ];
+		for ( int i = 0; i < mapping.length; ++i )
+		{
+			final int[] m = mapping[ i ];
+			for ( int k = 0; k < m.length; ++k )
+				fwdMap[ m[ k ] ] = i;
+		}
+
+		System.out.println( "mapside join" );
+		new Evaluate<>( N, sc, big ).run( new BenchmarkActionMapJoin<>( fwdMap ) );
 
 	}
 

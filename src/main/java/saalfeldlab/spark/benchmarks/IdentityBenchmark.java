@@ -29,7 +29,7 @@ public class IdentityBenchmark
 
 		final JavaRDD< Byte > rdd = sc.parallelize( al ).cache();
 		rdd.count();
-		new Evaluate( 10 ).run( sc, rdd, new BenchmarkActionIdentity<>() );
+		new Evaluate<>( 10, sc, rdd ).run( new BenchmarkActionIdentity<>() );
 
 		sc.close();
 	}
