@@ -6,25 +6,23 @@ import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 
-import saalfeldlab.spark.benchmarks.action.BenchmarkActionIdentity;
-import saalfeldlab.spark.benchmarks.action.NoAction;
+public class MathBenchmark
+{
 
-public class MathBenchmark {
-	
-	public static void main( String[] args ) {
-		SparkConf conf = new SparkConf().setMaster("local[*]").setAppName("id benchmark");
-		JavaSparkContext sc = new JavaSparkContext( conf );
-		sc.setLogLevel("ERROR");
-		
-		int N = 1000000;
-		ArrayList<Byte> al = new ArrayList<>();
-		for ( int i = 0; i < N; ++i ) {
-			al.add( (byte)255 );
-		}
-		JavaRDD<Byte> in = sc.parallelize(al).cache();
+	public static void main( final String[] args )
+	{
+		final SparkConf conf = new SparkConf().setMaster( "local[*]" ).setAppName( "id benchmark" );
+		final JavaSparkContext sc = new JavaSparkContext( conf );
+		sc.setLogLevel( "ERROR" );
+
+		final int N = 1000000;
+		final ArrayList< Byte > al = new ArrayList<>();
+		for ( int i = 0; i < N; ++i )
+			al.add( ( byte ) 255 );
+		final JavaRDD< Byte > in = sc.parallelize( al ).cache();
 		in.count();
 		new Evaluate( 10 ).run( sc, in, rdd -> rdd.map( v -> Math.exp( Math.sqrt( v ) ) ) );
-		
+
 		sc.close();
 	}
 
