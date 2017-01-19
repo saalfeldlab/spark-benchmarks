@@ -85,7 +85,7 @@ public class JoinBenchmark
 		final int[][] mapping = new int[ count ][];
 		final ArrayList< Integer > indices = new ArrayList<>();
 
-		for ( int i = 0, cnt = count; i < mapping.length; ++i, cnt -= 2 )
+		for ( int i = 0, cnt = count - 1; i < mapping.length; ++i, cnt -= 2 )
 		{
 			indices.add( i );
 			mapping[ i ] = cnt > 0 ? new int[] { cnt, cnt - 1 } : new int[ 0 ];
