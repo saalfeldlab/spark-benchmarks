@@ -5,6 +5,11 @@ import org.apache.spark.api.java.JavaPairRDD;
 import saalfeldlab.spark.benchmarks.action.BenchmarkActionPair;
 import scala.Tuple2;
 
+/**
+ *
+ * @author Philipp Hanslovsky
+ *
+ */
 public class BenchmarkActionJoin< K, V1, V2 > implements BenchmarkActionPair< K, V2 >
 {
 

@@ -3,6 +3,11 @@ package saalfeldlab.spark.benchmarks.action;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaRDDLike;
 
+/**
+ *
+ * @author Philipp Hanslovsky
+ *
+ */
 public class BenchmarkActionIdentity< V, RDD extends JavaRDDLike< V, RDD > > implements BenchmarkAction< V, RDD >
 {
 

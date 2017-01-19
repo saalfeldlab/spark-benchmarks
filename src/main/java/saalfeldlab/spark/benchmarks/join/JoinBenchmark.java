@@ -15,6 +15,11 @@ import org.apache.spark.broadcast.Broadcast;
 import saalfeldlab.spark.benchmarks.Evaluate;
 import scala.Tuple2;
 
+/**
+ *
+ * @author Philipp Hanslovsky
+ *
+ */
 public class JoinBenchmark
 {
 

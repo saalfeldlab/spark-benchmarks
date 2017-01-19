@@ -8,6 +8,11 @@ import org.apache.spark.api.java.JavaSparkContext;
 
 import saalfeldlab.spark.benchmarks.action.BenchmarkActionIdentity;
 
+/**
+ *
+ * @author Philipp Hanslovsky
+ *
+ */
 public class IdentityBenchmark
 {
 

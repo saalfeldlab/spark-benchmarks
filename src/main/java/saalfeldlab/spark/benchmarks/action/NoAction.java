@@ -1,11 +1,12 @@
 package saalfeldlab.spark.benchmarks.action;
 
-/**
- * @author Philipp Hanslovsky
- */
-
 import org.apache.spark.api.java.JavaRDDLike;
 
+/**
+ *
+ * @author Philipp Hanslovsky
+ *
+ */
 public class NoAction< T, RDD extends JavaRDDLike< T, RDD > > implements BenchmarkAction< T, RDD >
 {
 

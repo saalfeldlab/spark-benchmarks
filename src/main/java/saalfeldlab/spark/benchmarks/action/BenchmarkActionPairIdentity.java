@@ -2,6 +2,11 @@ package saalfeldlab.spark.benchmarks.action;
 
 import org.apache.spark.api.java.JavaPairRDD;
 
+/**
+ *
+ * @author Philipp Hanslovsky
+ *
+ */
 public class BenchmarkActionPairIdentity< K, V > implements BenchmarkActionPair< K, V >
 {
 

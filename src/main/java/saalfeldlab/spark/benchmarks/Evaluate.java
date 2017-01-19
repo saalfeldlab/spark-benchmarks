@@ -7,6 +7,11 @@ import saalfeldlab.spark.benchmarks.action.BenchmarkAction;
 import saalfeldlab.spark.benchmarks.action.NoAction;
 import scala.Tuple2;
 
+/**
+ *
+ * @author Philipp Hanslovsky
+ *
+ */
 public class Evaluate
 {
 
